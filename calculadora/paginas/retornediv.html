@@ -1,0 +1,35 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Suma de divisores de un número</title>
+    </head>
+    <body>
+        <h1>Suma de divisores de un número</h1>
+        <form>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" name="numero">
+        <br><br>
+        <label for="valorInicial">Ingrese un valor inicial:</label>
+        <input type="number" id="valorInicial" name="valorInicial">
+        <br><br>
+        <button type="button" onclick="sumaDivisores()">Calcular suma de divisores</button>
+        <button type="reset">Limpiar</button>
+        <input type="button" value="Regresar" onclick="window.history.back()">
+        </form>
+        <br>
+        <p id="resultado"></p>
+        <script>
+        function sumaDivisores() {
+            var numero = document.getElementById("numero").value;
+            var valorInicial = document.getElementById("valorInicial").value;
+            var suma = 0;
+            for (var i = valorInicial; i <= numero; i++) {
+            if (numero % i == 0) {
+                suma += i;
+            }
+            }
+            document.getElementById("resultado").innerHTML = "La suma de los divisores del número es: " + suma;
+        }
+        </script>
+    </body>
+    </html>

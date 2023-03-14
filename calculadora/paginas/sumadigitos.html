@@ -1,0 +1,30 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Suma de dígitos</title>
+    </head>
+    <body>
+        <h1>Suma de dígitos</h1>
+        <form>
+        <label for="numero">Introduce un número:</label>
+        <input type="number" id="numero" name="numero">
+        <br><br>
+        <button type="button" onclick="sumarDigitos()">Sumar dígitos</button>
+        <button type="reset">Limpiar</button>
+        <input type="button" value="Regresar" onclick="window.history.back()">
+        </form>
+        <br>
+        <p id="respuesta"></p>
+        <script>
+        function sumarDigitos() {
+            var numero = document.getElementById("numero").value;
+            var suma = 0;
+            while (numero > 0) {
+            suma += numero % 10;
+            numero = Math.floor(numero / 10);
+            }
+            document.getElementById("respuesta").innerHTML = "La suma de los dígitos es: " + suma;
+        }
+        </script>
+    </body>
+    </html>

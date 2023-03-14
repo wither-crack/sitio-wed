@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Encontrar Divisores</title>
+</head>
+<body>
+	<h1>Encontrar Divisores</h1>
+	<form>
+		<label for="numero">Número:</label>
+		<input type="number" id="numero" name="numero">
+		<br><br>
+		<label for="inicial">Valor Inicial:</label>
+		<input type="number" id="inicial" name="inicial">
+		<br><br>
+		<input type="button" value="Enviar" onclick="encontrarDivisores()">
+		<input type="button" value="Limpiar" onclick="limpiar()">
+        <input type="button" value="Regresar" onclick="window.history.back()">
+	</form>
+	<p id="resultado"></p>
+	
+	<script>
+		function encontrarDivisores() {
+			var numero = parseInt(document.getElementById("numero").value);
+			var valorInicial = parseInt(document.getElementById("inicial").value);
+			var divisores = [];
+			for (var i = valorInicial; i <= numero; i++) {
+				if (numero % i === 0) {
+					divisores.push(i);
+				}
+			}
+			document.getElementById("resultado").innerHTML = "Divisores: " + divisores.join(", ");
+		}
+		
+		function limpiar() {
+			document.getElementById("numero").value = "";
+			document.getElementById("inicial").value = "";
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

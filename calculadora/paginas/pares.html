@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dígitos pares de un número</title>
+	<script>
+		function mostrarDigitosPares() {
+			let numero = document.getElementById("numero").value;
+			let digitosPares = "";
+
+			for (let i = 0; i < numero.length; i++) {
+				let digito = parseInt(numero.charAt(i));
+
+				if (digito % 2 === 0) {
+					digitosPares += digito + ",";
+				}
+			}
+
+			if (digitosPares !== "") {
+				digitosPares = digitosPares.slice(0, -1);
+			}
+
+			document.getElementById("resultado").innerHTML = digitosPares;
+		}
+
+		function limpiar() {
+			document.getElementById("numero").value = "";
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</head>
+<body>
+	<h1>Dígitos pares de un número</h1>
+
+	<label for="numero">Número:</label>
+	<input type="number" id="numero">
+
+	<button onclick="mostrarDigitosPares()">Mostrar</button>
+	<button onclick="limpiar()">Limpiar</button>
+    <input type="button" value="Regresar" onclick="window.history.back()">
+
+	<p id="resultado"></p>
+</body>
+</html>

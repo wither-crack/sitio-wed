@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabla de multiplicar</title>
+</head>
+<body>
+	<h1>Tabla de multiplicar</h1>
+	<form>
+		<label for="numero">Ingresa un número del 1 al 12:</label>
+		<input type="number" id="numero" name="numero" min="1" max="12">
+		<button type="button" onclick="generarTabla()">Generar tabla</button>
+		<button type="button" onclick="limpiarCampos()">Limpiar</button>
+		<button type="button" onclick="window.history.back()">Regresar</button>
+		<table id="tabla"></table>
+	</form>
+
+	<script>
+		function generarTabla() {
+			var numeroInput = document.getElementById("numero");
+			var numero = parseInt(numeroInput.value);
+
+			var tablaOutput = document.getElementById("tabla");
+			tablaOutput.innerHTML = "";
+
+			if (isNaN(numero)) {
+				tablaOutput.innerHTML = "Debe ingresar un número";
+			} else if (numero < 1 || numero > 12) {
+				tablaOutput.innerHTML = "El número debe estar entre 1 y 12";
+			} else {
+				var tablaHTML = "<tr><th>Multiplicando</th><th>Resultado</th></tr>";
+				for (var i = 1; i <= 12; i++) {
+					var resultado = i * numero;
+					tablaHTML += "<tr><td>" + i + " x " + numero + "</td><td>" + resultado + "</td></tr>";
+				}
+				tablaOutput.innerHTML = tablaHTML;
+			}
+		}
+
+		function limpiarCampos() {
+			document.getElementById("numero").value = "";
+			document.getElementById("tabla").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

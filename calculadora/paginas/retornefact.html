@@ -1,0 +1,34 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Factorial de un número</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+        function calcularFactorial() {
+            let num = document.getElementById("numero").value;
+            let factorial = 1;
+            for (let i = num; i > 0; i--) {
+            factorial *= i;
+            }
+            document.getElementById("resultado").innerHTML = "El factorial de " + num + " es " + factorial;
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Factorial de un número</h1>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero">
+        <br>
+        <button onclick="calcularFactorial()">Calcular factorial</button>
+        <br>
+        <p id="resultado"></p>
+        <button onclick="limpiar()">Limpiar</button>
+        <input type="button" value="Regresar" onclick="window.history.back()">
+        <script type="text/javascript">
+        function limpiar() {
+            document.getElementById("numero").value = "";
+            document.getElementById("resultado").innerHTML = "";
+        }
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Función para números en rango</title>
+	<script>
+		function numerosEnRango(inicio, fin) {
+			const numeros = [];
+
+			for (let i = inicio; i < fin; i++) {
+				numeros.push(i);
+			}
+
+			return numeros;
+		}
+
+		function calcularNumeros() {
+			const inicio = Number(document.getElementById('inicio').value);
+			const fin = Number(document.getElementById('fin').value);
+
+			const numeros = numerosEnRango(inicio, fin);
+			document.getElementById('respuesta').textContent = numeros.join(', ');
+		}
+
+		function limpiar() {
+			document.getElementById('inicio').value = '';
+			document.getElementById('fin').value = '';
+			document.getElementById('respuesta').textContent = '';
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<label for="inicio">Inicio:</label>
+		<input type="number" id="inicio" name="inicio" required>
+		<br>
+		<label for="fin">Fin:</label>
+		<input type="number" id="fin" name="fin" required>
+		<br>
+		<input type="button" value="Calcular" onclick="calcularNumeros()">
+	</form>
+
+	<div>
+		<label>Respuesta:</label>
+		<span id="respuesta"></span>
+	</div>
+
+	<input type="button" value="Limpiar" onclick="limpiar()">
+	<input type="button" value="Regresar" onclick="window.history.back()">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calcular potencia</title>
+</head>
+<body>
+	<h1>Calcular potencia</h1>
+	<form>
+		<label for="base">Ingrese la base:</label>
+		<input type="text" id="base" name="base">
+		<label for="exponente">Ingrese el exponente:</label>
+		<input type="text" id="exponente" name="exponente">
+		<button type="button" onclick="calcularPotencia()">Calcular potencia</button>
+		<button type="button" onclick="limpiarCampos()">Limpiar</button>
+		<button type="button" onclick="window.history.back()">Regresar</button>
+		<p id="resultado"></p>
+	</form>
+
+	<script>
+		function calcularPotencia() {
+			var baseInput = document.getElementById("base");
+			var exponenteInput = document.getElementById("exponente");
+			var baseTexto = baseInput.value.trim();
+			var exponenteTexto = exponenteInput.value.trim();
+			var resultadoOutput = document.getElementById("resultado");
+			resultadoOutput.innerHTML = "";
+
+			if (baseTexto === "" || exponenteTexto === "") {
+				resultadoOutput.innerHTML = "Debe ingresar la base y el exponente";
+			} else {
+				var base = parseFloat(baseTexto);
+				var exponente = parseFloat(exponenteTexto);
+				var resultado = Math.pow(base, exponente);
+				resultadoOutput.innerHTML = base + "^" + exponente + " = " + resultado;
+			}
+		}
+
+		function limpiarCampos() {
+			document.getElementById("base").value = "";
+			document.getElementById("exponente").value = "";
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

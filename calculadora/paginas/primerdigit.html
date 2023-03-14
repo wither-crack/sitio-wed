@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primer Digito</title>
+	<script>
+		function primerDigito() {
+			
+			var num = document.getElementById("numero").value;
+
+			
+			var str = num.toString();
+
+			ç
+			var primer_digito = parseInt(str.charAt(0));
+
+			
+			document.getElementById("resultado").innerHTML = primer_digito;
+		}
+
+		function limpiar() {
+			
+			document.getElementById("numero").value = "";
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</head>
+<body>
+	<h1>Primer Digito</h1>
+    
+	<label>Ingrese un número: </label>
+	<input type="number" id="numero">
+	<br><br>
+	<button onclick="primerDigito()">Calcular</button>
+	<button onclick="limpiar()">Limpiar</button>
+	<br><br>
+	<label>El primer dígito del número ingresado es: </label>
+	<span id="resultado"></span>
+	<br><br>
+	<button onclick="window.location.href = 'index.html'">Regresar</button>
+</body>
+</html>

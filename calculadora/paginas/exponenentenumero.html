@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calcular potencia de serie de números</title>
+</head>
+<body>
+	<h1>Calcular potencia de serie de números</h1>
+	<form>
+		<label for="series">Ingresa una serie de números separados por coma:</label>
+		<input type="text" id="series" name="series">
+		<button type="button" onclick="calculatePower()">Calcular</button>
+		<button type="button" onclick="clearFields()">Limpiar</button>
+		<button type="button" onclick="window.history.back()">Regresar</button>
+		<p id="result"></p>
+	</form>
+
+	<script>
+		function calculatePower() {
+			var seriesInput = document.getElementById("series");
+			var series = seriesInput.value.split(",");
+
+			var resultOutput = document.getElementById("result");
+			resultOutput.innerHTML = "";
+
+			var results = [];
+			for (var i = 0; i < series.length; i++) {
+				var num = parseInt(series[i]);
+				var power = Math.pow(num, num);
+				results.push(power);
+			}
+
+			resultOutput.innerHTML = results.join(",");
+		}
+
+		function clearFields() {
+			document.getElementById("series").value = "";
+			document.getElementById("result").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

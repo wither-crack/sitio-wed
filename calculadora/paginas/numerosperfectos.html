@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Números perfectos</title>
+</head>
+<body>
+	<h1>Números perfectos</h1>
+	<form>
+		<label for="numero">Ingresa un número:</label>
+		<input type="text" id="numero" name="numero">
+		<button type="button" onclick="verificarNumero()">Verificar</button>
+		<button type="button" onclick="limpiarCampos()">Limpiar</button>
+		<input type="button" value="Regresar" onclick="window.history.back()">
+		<p id="resultado"></p>
+	</form>
+
+	<script>
+		function verificarNumero() {
+			var numeroInput = document.getElementById("numero");
+			var numero = parseInt(numeroInput.value);
+
+			var resultadoOutput = document.getElementById("resultado");
+			resultadoOutput.innerHTML = "";
+
+			if (isNaN(numero)) {
+				resultadoOutput.innerHTML = "Debe ingresar un número";
+			} else if (numero < 1) {
+				resultadoOutput.innerHTML = "El número debe ser mayor o igual a 1";
+			} else {
+				var divisores = [];
+				for (var i = 1; i < numero; i++) {
+					if (numero % i === 0) {
+						divisores.push(i);
+					}
+				}
+
+				var suma = divisores.reduce(function(a, b) {
+					return a + b;
+				}, 0);
+
+				if (suma === numero) {
+					resultadoOutput.innerHTML = "El número " + numero + " es perfecto";
+				} else {
+					resultadoOutput.innerHTML = "El número " + numero + " no es perfecto";
+				}
+			}
+		}
+
+		function limpiarCampos() {
+			document.getElementById("numero").value = "";
+			document.getElementById("resultado").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

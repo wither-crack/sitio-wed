@@ -1,0 +1,55 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Factoriales de un arreglo</title>
+        <script>
+        function calcularFactoriales() {
+            // Obtenemos los números del arreglo y los almacenamos en un array
+            var numeros = document.getElementById("numeros").value.split(",");
+            
+            // Creamos un array para almacenar los factoriales
+            var factoriales = [];
+            
+            // Recorremos el arreglo de números y calculamos su factorial
+            for (var i = 0; i < numeros.length; i++) {
+            // Convertimos el número de string a integer
+            var n = parseInt(numeros[i]);
+            
+            // Calculamos el factorial
+            var factorial = 1;
+            for (var j = 1; j <= n; j++) {
+                factorial *= j;
+            }
+            
+            // Agregamos el factorial al arreglo de factoriales
+            factoriales.push(factorial);
+            }
+            
+            // Mostramos los factoriales en la página
+            document.getElementById("resultado").innerHTML = factoriales.join(",");
+        }
+        
+        function limpiar() {
+            document.getElementById("numeros").value = "";
+            document.getElementById("resultado").innerHTML = "";
+        }
+        
+        function regresar() {
+            window.location.href = "index.html";
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Factoriales de un arreglo</h1>
+        
+        <label for="numeros">Arreglo de números:</label>
+        <input type="text" id="numeros"><br>
+        
+        <button onclick="calcularFactoriales()">Calcular factoriales</button>
+        <button onclick="limpiar()">Limpiar</button>
+        <input type="button" value="Regresar" onclick="window.history.back()">
+        
+        <p>Factoriales: <span id="resultado"></span></p>
+    </body>
+    </html>
